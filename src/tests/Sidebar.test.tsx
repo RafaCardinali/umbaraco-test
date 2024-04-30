@@ -7,7 +7,7 @@ describe('Sidebar', () => {
     test('should be visible when isVisible is true', () => {
         render(
             <Router>
-                <Sidebar isVisible={false} toggle={() => {}} />
+                <Sidebar />
             </Router>
         );
         
@@ -19,7 +19,7 @@ describe('Sidebar', () => {
         const toggleMock = jest.fn();
         render(
             <Router>
-                <Sidebar isVisible={true} toggle={toggleMock} />
+                <Sidebar />
             </Router>
         );
 

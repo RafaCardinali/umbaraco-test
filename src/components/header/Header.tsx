@@ -4,17 +4,24 @@ import { HeaderProps } from "../../models/componentModels";
 import { FaRegUser } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
+import { useSidebarVisibility } from "../../hooks/SidebarVisibilityContext";
 
-const Header: React.FC<HeaderProps> = ({ title, toggleSidebar }) => {
+const Header: React.FC<HeaderProps> = ({ title }) => {
+    const { toggleSidebar } = useSidebarVisibility();
+
+    const handleToggleSidebar = () => {
+        toggleSidebar();
+    };
+
     return (
         <header className={styles.header}>
-            <Link to="/" className={`${styles.button} ${styles.hamburguer}`} onClick={toggleSidebar} ><GiHamburgerMenu aria-label="Menu-Hamburger"/></Link>
+            <button className={`${styles.button} ${styles.hamburguer}`} onClick={handleToggleSidebar}><GiHamburgerMenu aria-label="Menu-Hamburger"/></button>
             <h1 className={styles.title}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit'}}>{title}</Link>
-                </h1>
+            </h1>
             <Link to="/" className={styles.button}><FaRegUser /></Link>
         </header>
-    )
+    );
 }
 
 export default Header;

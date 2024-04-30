@@ -1,9 +1,9 @@
+import React, {ReactNode} from "react";
+
 export interface HeaderProps {
     title: string;
-    toggleSidebar: () => void;
 }
 
-export interface SidebarProps {
-  toggle: () => void;
-  isVisible: boolean;
+export interface SidebarVisibilityProviderProps {
+  children: ReactNode;
 }
