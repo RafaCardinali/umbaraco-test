@@ -14,7 +14,8 @@ const ProfessionalRegister: React.FC = () => {
       professionalRegistration: '',
       careRegion: '',
       careOption: '',
-      photo: null
+      photo: null,
+      consultationValue: ''
     });
   
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -68,6 +69,9 @@ const ProfessionalRegister: React.FC = () => {
             </label>
             <label className={styles.label}>
                 <input className={styles.row} placeholder="Região de Atendimento" type="text" name="careRegion" value={values.careRegion} onChange={handleChange} required />
+            </label>
+            <label className={styles.label}>
+                <input className={styles.row} type="text" name="consultationValue" value={values.consultationValue} placeholder="Valor da consulta" onChange={handleChange} required />
             </label>
             <label className={styles.select}>
                     <span>Opção de atendimento:</span>
