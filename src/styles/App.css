@@ -1,5 +1,40 @@
+@import './variables.css';
+
 * {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #d0d0d0 #f0f0f0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d0d0d0;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bcbcbc;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #a8a8a8;
+}
+
+body {
+    overflow: auto;
+    @media(min-width: 768px) {
+        overflow: hidden;
+    }
 }

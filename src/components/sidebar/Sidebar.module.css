@@ -3,10 +3,13 @@
 .sidebar {
     background-color: var(--primary-color);
     color: white;
-    overflow: hidden; 
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
     opacity: 0;
-    border-top: .125rem solid white; 
+    position: fixed;
+    top: 3.75rem;
+    width: 0;
+    z-index: 1000;
 }
 
 .visible {   
@@ -47,7 +50,10 @@
 
 @media (min-width: 768px) {
     .sidebar {
-        width: 15.625rem;
+        width: 20%;
         height: 100vh;
+        top: 0;
+        position: relative;
+
     }
 }

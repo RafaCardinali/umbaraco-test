@@ -4,5 +4,7 @@
     --terciary-color: #2ECC71;
     --text-color: #AAAAAA;
     --btn-bg-color: #005DF9;
-    --footer-bg-color: #ccc;
+    --grey-color: #ccc;
+    --header-height: 3.75rem;
+    --input-height: 2.1875rem;
 }
