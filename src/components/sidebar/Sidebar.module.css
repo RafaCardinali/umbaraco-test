@@ -3,16 +3,13 @@
 .sidebar {
     background-color: var(--primary-color);
     color: white;
-    top: 3.75rem;
-    max-height: 0; 
     overflow: hidden; 
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0;
-    border-top: .125rem solid white;  
+    border-top: .125rem solid white; 
 }
 
-.visible {  
-    max-height: 31.25rem;   
+.visible {   
     opacity: 1;
     width: 100vw;
 }
@@ -52,11 +49,5 @@
     .sidebar {
         width: 15.625rem;
         height: 100vh;
-        left: 0;
-        top: 4.7rem;
-    }
-
-    .sidebar.visible {
-        max-height: 100vh;
     }
 }

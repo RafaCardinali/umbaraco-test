@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Header.module.css';
 import { HeaderProps } from "../../models/componentModels";
-import { FaRegUser } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import { useSidebarVisibility } from "../../hooks/SidebarVisibilityContext";
@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
             <h1 className={styles.title}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit'}}>{title}</Link>
             </h1>
-            <Link to="/" className={styles.button}><FaRegUser /></Link>
+            <Link to="/" className={styles.button}><FaPlus /></Link>
         </header>
     );
 }
