@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    background-color: var(--footer-bg-color);
+    color: #333;
+    height: 1.875rem;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.icon {
+    color: #333;
+}
+
+@media(min-width: 768px) {
+    .footer {
+        position: relative;
+    }
+}
