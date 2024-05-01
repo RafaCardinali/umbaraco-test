@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
             <h1 className={styles.title}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit'}}>{title}</Link>
             </h1>
-            <Link to="/" className={styles.button}><FaPlus /></Link>
+            <Link to="/professional-register" className={styles.button}><FaPlus /></Link>
         </header>
     );
 }
