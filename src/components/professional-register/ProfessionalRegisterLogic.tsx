@@ -1,5 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FormValues } from "../../models/professionalModels";
+import { ProfessionalService } from "../../services/ProfessionalService";
+import { Professional } from "../../models/professionalModels";
 
 export const useFormRegister = () => {
     const [values, setValues] = useState<FormValues>({
@@ -34,10 +36,24 @@ export const useFormRegister = () => {
         }
     };
 
-    return { values, setValues, handleChange };
+    const handleSubmit = (values: FormValues) => async (e: React.FormEvent) => {
+        e.preventDefault();
+    
+        const { email, phone } = values;
+
+        if (!email.trim() && !phone.trim()) {
+            alert("Por favor, insira pelo menos um email ou um telefone.");
+            return;
+        }
+    
+        try {
+            const createdProfessional = await ProfessionalService.createProfessional(values as Professional);
+            alert("Cadastro realizado!");
+        } catch (error) {
+            alert("Erro ao criar novo cadastro. Tente novamente");
+        }
+    };
+
+    return { values, setValues, handleChange, handleSubmit };
 };
 
-export const handleSubmit = (values: FormValues) => (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(values);
-};

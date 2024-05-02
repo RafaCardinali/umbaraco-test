@@ -3,7 +3,7 @@ export const formFields = [
     { name: 'vat', type: 'text', placeholder: 'CPF', required: true },
     { name: 'ic', type: 'text', placeholder: 'RG', required: true },
     { name: 'birthDate', type: 'date', placeholder: 'Data de Nascimento', required: true },
-    { name: 'email', type: 'email', placeholder: 'Email', required: true },
+    { name: 'email', type: 'email', placeholder: 'Email', required: false },
     { name: 'phone', type: 'text', placeholder: 'Telefone', required: false },
     { name: 'address', type: 'text', placeholder: 'Endereço', required: true },
     { name: 'professionalRegistration', type: 'text', placeholder: 'Registro Pessoal (CFM)', required: true },
