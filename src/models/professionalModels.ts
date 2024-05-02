@@ -10,5 +10,6 @@ export interface FormValues {
     careRegion: string;
     careOption: string;
     photo: File | null;
-    consultationValue: string
+    consultationValue: string;
+    [key: string]: string | File | null | undefined;
 }
