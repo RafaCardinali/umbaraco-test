@@ -61,7 +61,7 @@ const ProfessionalRegister: React.FC = () => {
                     }
                 }
             })}
-            <button className={styles.button} type="submit">Register</button>
+            <button className={styles.button} type="submit">Cadastrar</button>
         </form>
     );
 };
