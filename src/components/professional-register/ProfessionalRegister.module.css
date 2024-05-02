@@ -67,6 +67,10 @@
         width: 76%;
     }
 
+    .button:hover {
+        background-color: var(--primary-color);
+    }
+
     .row {
         width: 100%;
     }
