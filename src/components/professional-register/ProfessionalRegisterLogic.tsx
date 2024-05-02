@@ -4,7 +4,7 @@ import { ProfessionalService } from "../../services/ProfessionalService";
 import { Professional } from "../../models/professionalModels";
 
 export const useFormRegister = () => {
-    const [values, setValues] = useState<FormValues>({
+    const initialState = {
         name: '',
         vat: '',
         ic: '',
@@ -17,7 +17,9 @@ export const useFormRegister = () => {
         careOption: '',
         photo: null,
         consultationValue: ''
-    });
+    };
+    
+    const [values, setValues] = useState<FormValues>(initialState);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -36,24 +38,41 @@ export const useFormRegister = () => {
         }
     };
 
-    const handleSubmit = (values: FormValues) => async (e: React.FormEvent) => {
+    const checkCPF = async (vat: string) => {
+        try {
+            const response = await fetch(`http://localhost:3001/professionals?vat=${vat}`);
+            const data = await response.json();
+            return data.length > 0;
+        } catch (error) {
+            console.error('Error checking CPF:', error);
+            return false;
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
     
-        const { email, phone } = values;
-
+        const { email, phone, vat } = values;
+    
         if (!email.trim() && !phone.trim()) {
-            alert("Por favor, insira pelo menos um email ou um telefone.");
+            alert("Por favor insira pelo menos o email ou telefone.");
+            return;
+        }
+    
+        const cpfExists = await checkCPF(vat);
+        if (cpfExists) {
+            alert("CPF já registrado. Impossível seguir com cadastro.");
             return;
         }
     
         try {
             await ProfessionalService.createProfessional(values as Professional);
             alert("Cadastro realizado!");
+            setValues(initialState);
         } catch (error) {
-            alert("Erro ao criar novo cadastro. Tente novamente");
+            alert("Erro ao criar cadastro. Tente de novo.");
         }
     };
 
     return { values, setValues, handleChange, handleSubmit };
 };
-

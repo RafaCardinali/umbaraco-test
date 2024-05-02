@@ -7,7 +7,7 @@ export const ProfessionalService = {
     async createProfessional(professional: Professional): Promise<Professional> {
         const response = await axios.post(`${BASE_URL}/professionals`, professional);
         return response.data;
-  }
+    }
 };
 
 

@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Dr. João Silva",
-      "cpf": "123.456.789-10",
-      "rg": "MG-12.345.678",
+      "vat": "123.456.789-10",
+      "ic": "MG-12.345.678",
       "birthdate": "1980-01-01",
       "email": "joao.silva@example.com",
       "phone": "3100000000",
