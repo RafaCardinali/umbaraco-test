@@ -13,3 +13,7 @@ export interface FormValues {
     consultationValue: string;
     [key: string]: string | File | null | undefined;
 }
+
+export interface Professional extends FormValues {
+  id: string;
+}
