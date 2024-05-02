@@ -1,0 +1,19 @@
+{
+  "professionals": [
+    {
+      "id": 1,
+      "name": "Dr. João Silva",
+      "cpf": "123.456.789-10",
+      "rg": "MG-12.345.678",
+      "birthdate": "1980-01-01",
+      "email": "joao.silva@example.com",
+      "phone": "3100000000",
+      "address": "1234 Main St, Cidade, Estado",
+      "professionalRegistration": "123456",
+      "careOption": "Pessoalmente",
+      "careRegion": "São Paulo",
+      "photo": "",
+      "consultationValue": "200"
+    }
+  ]
+}

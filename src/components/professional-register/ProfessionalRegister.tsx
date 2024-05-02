@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './ProfessionalRegister.module.css';
-import { useFormRegister, handleSubmit } from "./ProfessionalRegisterLogic";
+import { useFormRegister } from "./ProfessionalRegisterLogic";
 import { formFields } from './formFieldConfig';
+import { ProfessionalService } from "../../services/ProfessionalService";
+import { Professional } from "../../models/professionalModels";
 
 const ProfessionalRegister: React.FC = () => {
     const { values, handleChange } = useFormRegister();
+    const [error, setError] = useState<string | null>(null);
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        try {
+            const createdProfessional = await ProfessionalService.createProfessional(values as Professional);
+        } catch (error) {
+            setError('Erro ao criar novo profissional. Por favor, tente novamente.');
+        }
+    };
 
     return (
-        <form onSubmit={handleSubmit(values)} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
             {formFields.map(field => {
                 if (field.type === 'select') {
                     return (
@@ -47,6 +59,7 @@ const ProfessionalRegister: React.FC = () => {
                     );
                 }
             })}
+            {error}
             <button className={styles.button} type="submit">Cadastrar</button>
         </form>
     );
