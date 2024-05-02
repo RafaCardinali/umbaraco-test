@@ -1,23 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import MaskedInput from 'react-text-mask';
 import styles from './ProfessionalRegister.module.css';
 import { useFormRegister } from "./ProfessionalRegisterLogic";
 import { formFields } from './formFieldConfig';
+import { getInputMask } from './inputMasks';
 
 const ProfessionalRegister: React.FC = () => {
     const { values, handleChange, handleSubmit } = useFormRegister();
 
     return (
-        <form onSubmit={handleSubmit(values)} className={styles.form} >
+        <form onSubmit={handleSubmit(values)} className={styles.form}>
             {formFields.map(field => {
+                let fieldValue = values[field.name];
+                let inputProps = {
+                    className: styles.row,
+                    name: field.name,
+                    placeholder: field.placeholder,
+                    onChange: handleChange,
+                    required: field.required,
+                    value: typeof fieldValue === 'string' ? fieldValue : ''
+                };
+
+                const mask = getInputMask(field.name);
+                
                 if (field.type === 'select') {
                     return (
                         <label key={field.name} className={styles.select}>
                             <span>{field.placeholder}</span>
-                            <select className={styles.selectRow} 
-                                    name={field.name} 
-                                    value={(values[field.name] as string) || ''}
-                                    onChange={handleChange} 
-                                    required={field.required}>
+                            <select {...inputProps} className={styles.selectRow}>
                                 {field.options?.map(option => 
                                     <option key={option} value={option}>{option}</option>
                                 )}
@@ -25,26 +35,30 @@ const ProfessionalRegister: React.FC = () => {
                         </label>
                     );
                 } else if (field.type === 'file') {
+                    const { value, ...fileInputProps } = inputProps;
                     return (
                         <label key={field.name} className={styles.label}>
-                            <input type="file"
-                                   name={field.name}
-                                   onChange={handleChange}
-                                   required={field.required} />
+                            <input type="file" {...fileInputProps} />
                         </label>
                     );
                 } else {
-                    return (
-                        <label key={field.name} className={styles.label}>
-                            <input type={field.type}
-                                   className={styles.row}
-                                   name={field.name}
-                                   placeholder={field.placeholder}
-                                   value={(values[field.name] as string) || ''}
-                                   onChange={handleChange}
-                                   required={field.required} />
-                        </label>
-                    );
+                    if (mask) {
+                        return (
+                            <label key={field.name} className={styles.label}>
+                                <MaskedInput
+                                    mask={mask}
+                                    guide={false}
+                                    {...inputProps}
+                                />
+                            </label>
+                        );
+                    } else {
+                        return (
+                            <label key={field.name} className={styles.label}>
+                                <input type={field.type} {...inputProps} />
+                            </label>
+                        );
+                    }
                 }
             })}
             <button className={styles.button} type="submit">Cadastrar</button>
