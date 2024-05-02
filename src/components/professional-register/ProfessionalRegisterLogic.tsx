@@ -47,7 +47,7 @@ export const useFormRegister = () => {
         }
     
         try {
-            const createdProfessional = await ProfessionalService.createProfessional(values as Professional);
+            await ProfessionalService.createProfessional(values as Professional);
             alert("Cadastro realizado!");
         } catch (error) {
             alert("Erro ao criar novo cadastro. Tente novamente");
