@@ -9,7 +9,7 @@ const ProfessionalRegister: React.FC = () => {
     const { values, handleChange, handleSubmit } = useFormRegister();
 
     return (
-        <form onSubmit={handleSubmit(values)} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
             {formFields.map(field => {
                 let fieldValue = values[field.name];
                 let inputProps = {
@@ -61,7 +61,7 @@ const ProfessionalRegister: React.FC = () => {
                     }
                 }
             })}
-            <button className={styles.button} type="submit">Cadastrar</button>
+            <button className={styles.button} type="submit">Register</button>
         </form>
     );
 };
