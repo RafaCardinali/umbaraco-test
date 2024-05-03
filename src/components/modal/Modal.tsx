@@ -27,6 +27,9 @@ const Modal: React.FC<ModalProps> = ({ professional, onClose }) => {
         <p><strong>Email:</strong> {professional.email}</p>
         <p><strong>Telefone:</strong> {professional.phone}</p>
         <p><strong>Endereço:</strong> {professional.address}</p>
+        <p><strong>Bairro:</strong> {professional.district}</p>
+        <p><strong>Cidade:</strong> {professional.city}</p>
+        <p><strong>Estado:</strong> {professional.state}</p>
         <p><strong>Região de Atendimento:</strong> {professional.careRegion}</p>
         <p><strong>Opção de Atendimento:</strong> {professional.careOption}</p>
         <p><strong>Valor da Consulta:</strong> {professional.consultationValue}</p>

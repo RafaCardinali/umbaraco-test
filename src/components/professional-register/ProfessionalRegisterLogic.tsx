@@ -13,6 +13,9 @@ export const useFormRegister = () => {
         email: '',
         phone: '',
         address: '',
+        district: '',
+        city: '',
+        state: '',
         professionalRegistration: '',
         careRegion: '',
         careOption: '',
@@ -40,16 +43,25 @@ export const useFormRegister = () => {
             });
         } else if (name === 'cep') {
             setCep(value);
-            if (value.length === 8) {
+            if (value.length === 9) {
                 try {
                     const addressData = await AddressService.fetchAddressByCep(value);
-                    setValues({
-                        ...values,
+                    setValues(prevValues => ({
+                        ...prevValues,
                         address: addressData.logradouro,
-                    });
+                        district: addressData.bairro,
+                        city: addressData.localidade,
+                        state: addressData.uf,
+                        cep: value
+                    }));
                 } catch (error) {
                     console.error('Error fetching address:', error);
                 }
+            } else {
+                setValues(prevValues => ({
+                    ...prevValues,
+                    cep: value
+                }));
             }
         } else {
             setValues({

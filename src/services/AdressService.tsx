@@ -2,7 +2,7 @@ import React from "react";
 
 const fetchAddressByCep = async (cep: string) => {
     try {
-        const formattedCep = cep.replace(/\D/g, ''); // Remove caracteres não numéricos
+        const formattedCep = cep.replace(/\D/g, '');
         if (formattedCep.length !== 8) {
             throw new Error('CEP inválido');
         }

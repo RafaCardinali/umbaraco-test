@@ -7,7 +7,7 @@ export const formFields = [
     { name: 'phone', type: 'text', placeholder: 'Telefone', required: false },
     { name: 'cep', type: 'text', placeholder: 'CEP', required: true }, 
     { name: 'address', type: 'text', placeholder: 'Endereço', required: true },
-    { name: 'distric', type: 'text', placeholder: 'Bairro', required: true},
+    { name: 'district', type: 'text', placeholder: 'Bairro', required: true},
     { name: 'city', type: 'text', placeholder: 'Cidade', required: true },
     { name: 'state', type: 'text', placeholder: 'Estado', required: true },
     { name: 'professionalRegistration', type: 'text', placeholder: 'Registro Pessoal (CFM)', required: true },
