@@ -18,10 +18,7 @@ const UserListPage: React.FC = () => {
     setSelectedProfessional(null);
   };
 
-  function handleEdit(professional: Professional): void {
-    // Implementação futura para edição
-    console.log("Edit not implemented.");
-  }
+  function handleEdit(professional: Professional): void {}
 
   function handleDelete(professional: Professional): void {
     if (window.confirm("Você tem certeza que deseja excluir este profissional?")) {
