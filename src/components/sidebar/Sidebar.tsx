@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
 import { Link } from 'react-router-dom';
-import { useSidebarVisibility } from "../../hooks/SidebarVisibilityContext";
+import { useSidebarVisibility } from "../../hooks/sidebarVisibilityContext";
 import { useMediaQuery } from 'react-responsive';
 import { FaHome } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
