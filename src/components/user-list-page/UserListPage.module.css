@@ -34,6 +34,10 @@
     background-color: #ADD8E6;
 }
 
+.inactiveRow {
+    background-color: #EBEBE4;
+}
+
 @media(min-width: 768px) {
     .content {
         width: 80%;

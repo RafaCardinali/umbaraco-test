@@ -21,7 +21,8 @@ export const useFormRegister = () => {
         careOption: '',
         photo: null,
         consultationValue: '',
-        cep: ''
+        cep: '',
+        status: 'ativo'
     };
     
     const [values, setValues] = useState<FormValues>(initialState);
