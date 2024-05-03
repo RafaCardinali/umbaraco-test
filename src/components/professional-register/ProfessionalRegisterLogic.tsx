@@ -28,15 +28,27 @@ export const useFormRegister = () => {
     const [values, setValues] = useState<FormValues>(initialState);
     const [cep, setCep] = useState('');
 
-    const handleChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
+    const handleChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-
+    
         if (name === 'photo' && e.target instanceof HTMLInputElement) {
             const files = e.target.files;
-            setValues({
-                ...values,
-                [name]: files ? files[0] : null,
-            });
+            if (files && files[0]) {
+                if (files[0].type !== 'image/jpeg') {
+                    alert("Por favor, selecione um arquivo JPEG.");
+                    e.target.value = '';
+                    return;
+                }
+                setValues({
+                    ...values,
+                    [name]: files[0],
+                });
+            } else {
+                setValues({
+                    ...values,
+                    [name]: null,
+                });
+            }
         } else if (name === 'vat') {
             setValues({
                 ...values,
@@ -71,6 +83,8 @@ export const useFormRegister = () => {
             });
         }
     };
+    
+    
 
     const checkCPF = async (vat: string) => {
         try {
