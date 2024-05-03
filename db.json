@@ -8,16 +8,17 @@
       "birthDate": "01/12/2002",
       "email": "joao.silva@example.com",
       "phone": "3100000000",
-      "address": "",
-      "district": "",
-      "city": "",
-      "state": "",
+      "address": "Rua Votuporanga",
+      "district": "Sumaré",
+      "city": "São Paulo",
+      "state": "SP",
       "professionalRegistration": "123456",
       "careOption": "Pessoalmente",
-      "careRegion": "São Paulo",
-      "photo": "",
-      "consultationValue": "200",
-      "status": "ativo"
+      "careRegion": "Sumaré",
+      "photo": "C:\\fakepath\\github.png",
+      "consultationValue": "R$ 500,00",
+      "status": "ativo",
+      "cep": "01256-000"
     }
   ]
 }

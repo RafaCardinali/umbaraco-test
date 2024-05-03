@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormValues } from "../../models/professionalModels";
-import { ProfessionalService } from "../../services/ProfessionalService";
+import { createProfessional } from "../../services/ProfessionalService";
 import { Professional } from "../../models/professionalModels";
 import AddressService from "../../services/AdressService";
 
@@ -99,7 +99,7 @@ export const useFormRegister = () => {
         }
     
         try {
-            await ProfessionalService.createProfessional(values as Professional);
+            await createProfessional(values as Professional);
             alert("Cadastro realizado!");
             setValues(initialState);
         } catch (error) {

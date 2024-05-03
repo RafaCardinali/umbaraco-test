@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import Footer from './components/footer/Footer';
 import AppRoutes from './AppRoutes';
-import { SidebarVisibilityProvider } from './hooks/SidebarVisibilityContext';
+import { SidebarVisibilityProvider } from './hooks/sidebarVisibilityContext';
 
 const App: React.FC = () => {
   return (
