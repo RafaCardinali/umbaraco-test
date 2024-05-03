@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Professional } from '../models/professionalModels';
+import { useEffect, useState } from 'react';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -9,5 +10,26 @@ export const ProfessionalService = {
         return response.data;
     }
 };
+
+const useFetchProfessionals = () => {
+  const [professionals, setProfessionals] = useState([]);
+
+  useEffect(() => {
+    async function fetchProfessionals() {
+      try {
+        const response = await axios.get("http://localhost:3001/professionals");
+        setProfessionals(response.data);
+      } catch (error) {
+        console.error("Error fetching professionals:", error);
+      }
+    }
+
+    fetchProfessionals();
+  }, []);
+
+  return professionals;
+};
+
+export default useFetchProfessionals;
 
 

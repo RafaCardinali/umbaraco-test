@@ -5,6 +5,7 @@ import { useSidebarVisibility } from "../../hooks/SidebarVisibilityContext";
 import { useMediaQuery } from 'react-responsive';
 import { FaHome } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
+import { FaListUl } from "react-icons/fa";
 
 const Sidebar: React.FC = () => {
   const { isVisible } = useSidebarVisibility();
@@ -16,8 +17,7 @@ const Sidebar: React.FC = () => {
                 <ul>
                     <li className={styles.link}><Link to="/"><FaHome />Home</Link></li>
                     <li className={styles.link}><Link to="/professional-register"><FaPlus />Novo Cadastro</Link></li>
-                    <li className={styles.link}><Link to="/">Services</Link></li>
-                    <li className={styles.link}><Link to="/">Contact</Link></li>
+                    <li className={styles.link}><Link to="/professional-list"><FaListUl />Lista de Profissionais</Link></li>
                 </ul>
             </nav>
         </aside>

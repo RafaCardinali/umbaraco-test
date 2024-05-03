@@ -1,0 +1,50 @@
+@import '../../styles/variables.css';
+
+.title {
+    text-align: center;
+    border-bottom: .125rem solid var(--grey-color) ;
+}
+
+.tableTitle {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: .125rem solid var(--grey-color);
+    padding: .625rem;
+}
+
+.tableInfo {
+    display: flex;
+    gap: 2.5rem;
+    padding-left: 1.1875rem;
+    align-items: center;
+    height: 2.5rem;
+}
+
+.content {
+    height: calc(100vh - var(--header-height));
+}
+
+.actionButtons {
+    display: flex;
+    gap: .625rem;
+    margin-left: 1.5rem;
+}
+
+.oddRow {
+    background-color: #ADD8E6;
+}
+
+@media(min-width: 768px) {
+    .content {
+        width: 80%;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .tableInfo {
+        justify-content: space-around;
+        padding-right: 2.1875rem;
+    }
+}

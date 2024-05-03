@@ -16,4 +16,5 @@ export interface FormValues {
 
 export interface Professional extends FormValues {
   id: string;
+  status: string
 }
