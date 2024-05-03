@@ -36,7 +36,7 @@ const UserListPage: React.FC = () => {
 
   return (
     <div className={styles.content}>
-      <h1 className={styles.title}>Lista de Profissionais</h1>
+      <h2 className={styles.title}>Lista de Profissionais</h2>
       <ProfessionalTable
         professionals={professionals}
         onRowClick={handleRowClick}

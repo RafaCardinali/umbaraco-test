@@ -22,27 +22,32 @@ const ProfessionalTable: React.FC<ProfessionalTableProps> = ({ professionals, on
   return (
     <div className={styles.wrapper}>
       {isModalOpen && <ModalExclusion onConfirm={confirmDelete} onCancel={() => setModalOpen(false)} />}
-      <div className={styles.tableTitle}>
-        <span></span>
-        <h4>Nome</h4>
-        <h4>Status</h4>
-        <h4>Ações</h4>
-      </div>
-      <div>
-        {professionals.map((professional, index) => (
-          <div key={professional.id} className={`${styles.tableInfo} ${index % 2 === 0 ? styles.oddRow : ''} ${professional.status === 'inativo' ? styles.inactiveRow : ''}`}>
-            <p onClick={() => onRowClick(professional)}><FaMagnifyingGlass /></p>
-            <p data-label="Nome">{professional.name}</p>
-            <span onClick={() => handleToggleStatus(professional)}>
-              {professional.status === 'ativo' ? <FaUser /> : <FaUserSlash />}
-            </span>
-            <div className={styles.actionButtons}>
-              <span onClick={() => handleEdit(navigate, professional.id)}><FaEdit /></span>
-              <span onClick={() => handleDelete(professional)}><FaTrash /></span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <table className={styles.table}>
+        <thead>
+          <tr className={styles.tableTitle}>
+            <th className={styles.topic} scope="col"></th>
+            <th className={styles.topic} scope="col">Nome</th>
+            <th className={styles.topic} scope="col">Status</th>
+            <th className={styles.topic} scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {professionals.map((professional, index) => (
+            <tr key={professional.id} 
+                className={`${index % 2 === 0 ? styles.oddRow : ''} ${professional.status === 'inativo' ? styles.inactiveRow : ''}`}>
+              <td onClick={() => onRowClick(professional)} className={styles.actionButtons}><FaMagnifyingGlass aria-label="Visualizar detalhes"/></td>
+              <td>{professional.name}</td>
+              <td onClick={() => handleToggleStatus(professional)} className={styles.actionButtons}>
+                {professional.status === 'ativo' ? <FaUser aria-label="Usuário ativo"/> : <FaUserSlash aria-label="Usuário inativo"/>}
+              </td>
+              <td className={styles.actionButtons}>
+                <span onClick={() => handleEdit(navigate, professional.id)}><FaEdit aria-label="Editar"/></span>
+                <span onClick={() => handleDelete(professional)}><FaTrash aria-label="Deletar"/></span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
