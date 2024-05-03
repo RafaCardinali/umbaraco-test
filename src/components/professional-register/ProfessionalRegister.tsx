@@ -1,3 +1,4 @@
+// ProfessionalRegister.tsx
 import React from "react";
 import MaskedInput from 'react-text-mask';
 import styles from './ProfessionalRegister.module.css';
@@ -21,7 +22,7 @@ const ProfessionalRegister: React.FC = () => {
                     value: typeof fieldValue === 'string' ? fieldValue : ''
                 };
 
-                const mask = getInputMask(field.name);
+                const mask = field.name !== 'vat' ? getInputMask(field.name) : undefined;
                 
                 if (field.type === 'select') {
                     return (

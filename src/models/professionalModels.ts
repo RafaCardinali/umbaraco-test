@@ -6,6 +6,10 @@ export interface FormValues {
     email: string;
     phone: string;
     address: string;
+    district: string;
+    city: string;
+    state: string;
+    cep: string;
     professionalRegistration: string;
     careRegion: string;
     careOption: string;

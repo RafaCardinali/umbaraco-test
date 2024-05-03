@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FormValues } from "../../models/professionalModels";
 import { ProfessionalService } from "../../services/ProfessionalService";
 import { Professional } from "../../models/professionalModels";
+import AddressService from "../../services/AdressService";
 
 export const useFormRegister = () => {
     const initialState = {
@@ -12,16 +13,21 @@ export const useFormRegister = () => {
         email: '',
         phone: '',
         address: '',
+        district: '',
+        city: '',
+        state: '',
         professionalRegistration: '',
         careRegion: '',
         careOption: '',
         photo: null,
-        consultationValue: ''
+        consultationValue: '',
+        cep: ''
     };
     
     const [values, setValues] = useState<FormValues>(initialState);
+    const [cep, setCep] = useState('');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
+    const handleChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = e.target;
 
         if (name === 'photo' && e.target instanceof HTMLInputElement) {
@@ -30,6 +36,33 @@ export const useFormRegister = () => {
                 ...values,
                 [name]: files ? files[0] : null,
             });
+        } else if (name === 'vat') {
+            setValues({
+                ...values,
+                [name]: value,
+            });
+        } else if (name === 'cep') {
+            setCep(value);
+            if (value.length === 9) {
+                try {
+                    const addressData = await AddressService.fetchAddressByCep(value);
+                    setValues(prevValues => ({
+                        ...prevValues,
+                        address: addressData.logradouro,
+                        district: addressData.bairro,
+                        city: addressData.localidade,
+                        state: addressData.uf,
+                        cep: value
+                    }));
+                } catch (error) {
+                    console.error('Error fetching address:', error);
+                }
+            } else {
+                setValues(prevValues => ({
+                    ...prevValues,
+                    cep: value
+                }));
+            }
         } else {
             setValues({
                 ...values,
