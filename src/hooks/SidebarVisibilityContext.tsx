@@ -1,7 +1,7 @@
 import { useState, useCallback, createContext, useContext } from 'react';
 import { SidebarVisibilityProviderProps } from '../models/componentModels';
 
-const SidebarVisibilityContext = createContext<{
+export const SidebarVisibilityContext = createContext<{
     isVisible: boolean;
     toggleSidebar: () => void;
 }>({

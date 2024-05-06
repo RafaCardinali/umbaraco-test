@@ -35,14 +35,14 @@ const ProfessionalTable: React.FC<ProfessionalTableProps> = ({ professionals, on
           {professionals.map((professional, index) => (
             <tr key={professional.id} 
                 className={`${index % 2 === 0 ? styles.oddRow : ''} ${professional.status === 'inativo' ? styles.inactiveRow : ''}`}>
-              <td onClick={() => onRowClick(professional)} className={styles.actionButtons}><FaMagnifyingGlass aria-label="Visualizar detalhes"/></td>
+              <td onClick={() => onRowClick(professional)} className={styles.actionButtons} aria-label="Visualizar detalhes"><FaMagnifyingGlass /></td>
               <td>{professional.name}</td>
               <td onClick={() => handleToggleStatus(professional)} className={styles.actionButtons}>
                 {professional.status === 'ativo' ? <FaUser aria-label="Usuário ativo"/> : <FaUserSlash aria-label="Usuário inativo"/>}
               </td>
               <td className={styles.actionButtons}>
-                <span onClick={() => handleEdit(navigate, professional.id)}><FaEdit aria-label="Editar"/></span>
-                <span onClick={() => handleDelete(professional)}><FaTrash aria-label="Deletar"/></span>
+                <span onClick={() => handleEdit(navigate, professional.id)} aria-label="Editar"><FaEdit /></span>
+                <span onClick={() => handleDelete(professional)} aria-label="Deletar"><FaTrash /></span>
               </td>
             </tr>
           ))}

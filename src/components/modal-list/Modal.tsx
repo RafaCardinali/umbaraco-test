@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({ professional, onClose }) => {
   };
 
   return (
-    <div className={styles.modal} onClick={handleOverlayClick}>
+    <div className={styles.modal} onClick={handleOverlayClick} role="dialog">
       <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
         <h2>Detalhes do Profissional</h2>

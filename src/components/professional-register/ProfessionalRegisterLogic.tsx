@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormValues } from "../../models/professionalModels";
 import { createProfessional } from "../../services/ProfessionalService";
 import { Professional } from "../../models/professionalModels";
-import AddressService from "../../services/AdressService";
+import AddressService from "../../services/AddressService";
 
 export const useFormRegister = () => {
     const initialState = {
