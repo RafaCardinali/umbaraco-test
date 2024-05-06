@@ -4,7 +4,7 @@ import { HeaderProps } from "../../models/componentModels";
 import { FaPlus } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import { useSidebarVisibility } from "../../hooks/sidebarVisibilityContext";
+import { useSidebarVisibility } from "../../hooks/SidebarVisibilityContext";
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
     const { toggleSidebar } = useSidebarVisibility();

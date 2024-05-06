@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import AdressService from '../../services/AdressService';
+import AdressService from '../../services/AddressService';
 import { FormValues, Professional } from '../../models/professionalModels'; 
 import { useNavigate } from 'react-router-dom';
 
