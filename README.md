@@ -24,7 +24,7 @@ Este é um projeto de uma aplicação de cadastro de usuário, desenvolvida com 
 
 ## Instalação
 
-1. Clone o repositório no seu terminal com o comando: `git clone https://github.com/RafaCardinali/user-registration.git`.
+1. Clone o repositório no seu terminal com o comando: `git clone https://github.com/RafaCardinali/umbaraco-test.git`.
 2. Navegue até o diretório do projeto: `umbaraco-test`.
 3. Execute `npm install` para instalar todas as dependências necessárias.
 4. Depois de instaladas as dependências, abra dois terminais.
